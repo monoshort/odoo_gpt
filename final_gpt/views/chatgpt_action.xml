@@ -1,0 +1,9 @@
+<!-- odoo_chatgpt/views/chatgpt_action.xml -->
+<odoo>
+    <record id="action_chatgpt_form" model="ir.actions.act_window">
+        <field name="name">ChatGPT Form</field>
+        <field name="res_model">chatgpt.model</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_chatgpt_form"/>
+    </record>
+</odoo>

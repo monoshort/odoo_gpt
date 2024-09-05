@@ -1,0 +1,58 @@
+<odoo>
+    <!-- Formulierweergave voor ChatGPT -->
+    <record id="view_chatgpt_form" model="ir.ui.view">
+        <field name="name">chatgpt.form</field>
+        <field name="model">chatgpt.model</field>
+        <field name="arch" type="xml">
+            <form string="ChatGPT Form">
+                <sheet>
+                    <div class="o_form_sheet_bg">
+                        <div class="chat-container">
+                            <!-- Chatgeschiedenis aan de linkerzijde -->
+                            <div class="chat-history">
+                                <field name="response_ids" widget="one2many_list" class="custom-chat-history">
+                                    <tree>
+                                        <field name="message"/>
+                                        <field name="response"/>
+                                    </tree>
+                                </field>
+                            </div>
+                            <!-- Chatinterface aan de rechterzijde -->
+                            <div class="chat-interface">
+                                <div class="custom-header">ChatGPT Interface</div>
+                                <div class="sticky-footer">
+                                    <div class="sticky-message-container">
+                                        <field name="message" placeholder="Type your message here..." class="custom-field"/>
+                                        <button name="send_message" string="Send Message" type="object" class="custom-button"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Actie voor ChatGPT Form -->
+    <record id="action_chatgpt_form" model="ir.actions.act_window">
+        <field name="name">ChatGPT Form</field>
+        <field name="res_model">chatgpt.model</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_chatgpt_form"/>
+    </record>
+
+    <!-- Hoofdmenu-item voor ChatGPT -->
+    <menuitem
+        id="menu_chatgpt"
+        name="ChatGPT"
+        sequence="10"/>
+
+    <!-- Submenu-item voor het ChatGPT Formulier -->
+    <menuitem
+        id="menu_chatgpt_form"
+        name="ChatGPT Form"
+        parent="menu_chatgpt"
+        action="action_chatgpt_form"
+        sequence="10"/>
+</odoo>

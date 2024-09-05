@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_chatgpt_model_user,chatgpt.model user,model_chatgpt_model,,1,1,1,1
+access_chatgpt_message_user,chatgpt.message user,model_chatgpt_message,,1,1,1,1
